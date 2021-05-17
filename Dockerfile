@@ -8,5 +8,9 @@ RUN git config --global url."ssh://git@github.com/".insteadOf "https://github.co
 RUN echo "Host github.com\n\tStrictHostKeyChecking no\n\tControlMaster auto\n\tControlPersist 600\n\tControlPath /tmp/ssh-%r@%h:%p" >> /etc/ssh/ssh_config
 
 ENV GO111MODULE=on
-
 ENV PATH="$PATH:$(go env GOPATH)/bin"
+
+COPY docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+ENV SSH_PRIVATE_KEY ""
