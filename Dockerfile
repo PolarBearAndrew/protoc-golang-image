@@ -5,6 +5,7 @@ RUN wget -q -O protoc.zip https://github.com/protocolbuffers/protobuf/releases/d
 # RUN mv /go/bin/protoc /usr/local/bin/protoc && rm protoc.zip
 
 RUN git config --global url."ssh://git@github.com/".insteadOf "https://github.com/"
+RUN echo "Host github.com\n\tStrictHostKeyChecking no\n\tControlMaster auto\n\tControlPersist 600\n\tControlPath /tmp/ssh-%r@%h:%p" >> /etc/ssh/ssh_config
 
 ENV GO111MODULE=on
 
