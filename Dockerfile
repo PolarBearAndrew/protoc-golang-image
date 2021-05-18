@@ -14,3 +14,4 @@ COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 ENV SSH_PRIVATE_KEY ""
+ENV GOPRIVATE "github.com/AmazingTalker/*"
