@@ -5,7 +5,7 @@ then
     echo SSH_PRIVATE_KEY is not provided.
 else
     mkdir -p /root/.ssh
-    echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
+    echo "$SSH_PRIVATE_KEY" | base64 --decode > /root/.ssh/id_rsa
     chmod 600 /root/.ssh/id_rsa
 fi
 
