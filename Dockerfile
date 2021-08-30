@@ -1,14 +1,14 @@
 FROM golang:1.16-alpine
 
 RUN apk update && apk upgrade
-RUN apk add unzip && apk add git && apk add --update coreutils && apk add --update make
+RUN apk add unzip git curl && apk add --update coreutils make
 RUN wget -q -O protoc.zip https://github.com/protocolbuffers/protobuf/releases/download/v3.12.0/protoc-3.12.0-linux-x86_64.zip && unzip protoc.zip
 # RUN mv /go/bin/protoc /usr/local/bin/protoc && rm protoc.zip
 
 ENV PROTOC_ZIP=protoc-3.14.0-linux-x86_64.zip
 RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/$PROTOC_ZIP
-RUN sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
-RUN sudo unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
+RUN unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
+RUN unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
 RUN rm -f $PROTOC_ZIP
 
 # RUN git config --global url."ssh://git@github.com/".insteadOf "https://github.com/"
