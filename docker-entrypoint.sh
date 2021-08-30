@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/bin/sh
+set -e
 
 if [ -z "$SSH_PRIVATE_KEY" ]
 then
