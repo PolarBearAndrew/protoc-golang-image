@@ -1,4 +1,4 @@
-FROM golang:alpine3.14
+FROM golang:1.16-alpine
 
 RUN apk update && apk upgrade
 RUN apk add unzip && apk add git && apk add --update coreutils && apk add --update make
