@@ -1,6 +1,7 @@
 FROM golang:alpine3.14
 
-RUN apk update && apk upgrade apk add unzip && apk add git && apk add --update coreutils
+RUN apk update && apk upgrade
+RUN apk add unzip && apk add git && apk add --update coreutils
 RUN wget -q -O protoc.zip https://github.com/protocolbuffers/protobuf/releases/download/v3.12.0/protoc-3.12.0-linux-x86_64.zip && unzip protoc.zip
 # RUN mv /go/bin/protoc /usr/local/bin/protoc && rm protoc.zip
 
