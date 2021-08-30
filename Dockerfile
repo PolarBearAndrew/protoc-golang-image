@@ -1,4 +1,4 @@
-FROM golang:1.16
+FROM golang:alpine3.14
 
 RUN apt-get update && apt-get install unzip -y
 RUN wget -q -O protoc.zip https://github.com/protocolbuffers/protobuf/releases/download/v3.12.0/protoc-3.12.0-linux-x86_64.zip && unzip protoc.zip
